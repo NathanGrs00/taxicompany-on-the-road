@@ -79,18 +79,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
             app:layout_constraintVertical_bias="0.286" />
 
-        <LinearLayout
-            android:id="@+id/llNavigatieBalk"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#D1F1BF"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvTitelBanner"
-            app:layout_constraintVertical_bias="1.0"></LinearLayout>
+        <include layout="@layout/navigation_bar"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -22,7 +22,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteX="68dp"
         tools:layout_editor_absoluteY="0dp">
 
         <include layout="@layout/header_bar" />
@@ -39,18 +39,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.257" />
 
-        <LinearLayout
-            android:id="@+id/llNavigatieBalk"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#D1F1BF"
-            android:orientation="horizontal"
+        <include layout="@layout/navigation_bar"/>
+
+        <Button
+            android:id="@+id/btnTerug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary_green"
+            android:text="Go back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.208"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvTitelBanner"
-            app:layout_constraintVertical_bias="1.0"></LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/tvKentekenInvoer"
+            app:layout_constraintVertical_bias="0.288" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
