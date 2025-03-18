@@ -9,9 +9,10 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.details_layout)
 
-        val kentekenInvoer = intent.getStringExtra("KENTEKEN_INVOER")
+        val intent = this.intent
+        val bundle = intent.extras
+        val tvKentekenInvoer: TextView = findViewById(R.id.tvKentekenInvoer)
 
-        val textView: TextView = findViewById(R.id.tvKentekenInvoer)
-        textView.text = kentekenInvoer
+        tvKentekenInvoer.text = bundle!!.get("KENTEKEN_INVOER").toString()
     }
 }
