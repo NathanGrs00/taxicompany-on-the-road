@@ -1,6 +1,5 @@
 package com.nathan.taxibedrijf_on_the_road
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -20,9 +19,16 @@ class MainActivity : AppCompatActivity() {
 
         val verzendKentekenKnop = findViewById<Button>(R.id.btnVerzendKenteken)
         verzendKentekenKnop.setOnClickListener(){
-            val intent = Intent(this, DetailsActivity::class.java)
-            intent.putExtra("KENTEKEN_INVOER", kentekenInvoer.text)
-            startActivity(intent)
+            val gebruikersInput = kentekenInvoer.text.toString()
+
+            val fragment = ResultFragment()
+            val bundle = Bundle()
+            bundle.putString("GEBRUIKERS_INPUT", gebruikersInput)
+            fragment.arguments = bundle
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fmResultaat, fragment)
+                .commit()
         }
     }
 }
