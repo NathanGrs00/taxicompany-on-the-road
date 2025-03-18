@@ -25,33 +25,7 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <TextView
-            android:id="@+id/tvTitelBanner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gradient"
-            android:fontFamily="@font/inter_bold"
-            android:gravity="center"
-            android:paddingTop="60dp"
-            android:paddingBottom="10dp"
-            android:text="Kenteken-tracker 'On The Road'"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/autoGegevensText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.163"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
-            app:layout_constraintVertical_bias="0.17" />
+        <include layout="@layout/header_bar"/>
 
         <TextView
             android:id="@+id/tvWelkomSubtitel"
@@ -105,18 +79,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
             app:layout_constraintVertical_bias="0.286" />
 
-        <LinearLayout
-            android:id="@+id/llNavigatieBalk"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#D1F1BF"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvTitelBanner"
-            app:layout_constraintVertical_bias="1.0"></LinearLayout>
+        <include layout="@layout/navigation_bar"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
