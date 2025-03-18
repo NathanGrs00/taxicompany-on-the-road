@@ -25,59 +25,19 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <include layout="@layout/header_bar"/>
+        <include layout="@layout/header_bar" />
 
         <TextView
-            android:id="@+id/tvWelkomSubtitel"
+            android:id="@+id/tvKentekenInvoer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welkom!"
-            android:textSize="30sp"
+            android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.227"
+            app:layout_constraintHorizontal_bias="0.163"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.214" />
-
-        <EditText
-            android:id="@+id/ptKentekenInvoer"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:hint="Kenteken"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.117" />
-
-        <TextView
-            android:id="@+id/tvVraagKenteken"
-            android:layout_width="242dp"
-            android:layout_height="22dp"
-            android:text="Voer hier het kenteken in van de auto:"
-            app:layout_constraintBottom_toTopOf="@+id/ptKentekenInvoer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.396"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel" />
-
-        <Button
-            android:id="@+id/btnVerzendKenteken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#46C580"
-            android:text="Zoek op kenteken"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.268"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.286" />
+            app:layout_constraintVertical_bias="0.257" />
 
         <LinearLayout
             android:id="@+id/llNavigatieBalk"
