@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        kentekenInvoer = findViewById(R.id.kentekenInvoer)
+        kentekenInvoer = findViewById(R.id.ptKentekenInvoer)
         toonGegevens = findViewById(R.id.autoGegevensText)
 
-        val verzendKentekenKnop = findViewById<Button>(R.id.verzendKentekenKnop)
+        val verzendKentekenKnop = findViewById<Button>(R.id.btnVerzendKenteken)
         verzendKentekenKnop.setOnClickListener(){
             toonGegevens.text = kentekenInvoer.text
         }
