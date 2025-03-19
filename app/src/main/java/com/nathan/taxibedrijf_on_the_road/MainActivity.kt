@@ -3,6 +3,7 @@ package com.nathan.taxibedrijf_on_the_road
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -36,8 +37,10 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
+        var lstVoertuigen : ListView = findViewById(R.id.lstVoertuigen)
+
         //Maak een variabele 'ac' die de context van de applicatie stuurt naar de APIController Class.
         var ac = APIController(this.applicationContext)
-        ac.getData()
+        ac.getData(lstVoertuigen)
     }
 }

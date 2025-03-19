@@ -1,6 +1,8 @@
 package com.nathan.taxibedrijf_on_the_road
 
 import android.content.Context
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -11,7 +13,7 @@ import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
 
 class APIController(var context : Context) {
-    fun getData(){
+    fun getData(lstVoertuigen: ListView){
         //URL die gaat naar de data in een API, in json format.
         val url = "https://opendata.rdw.nl/resource/m9d7-ebf2.json"
         var gson = Gson()
@@ -32,10 +34,10 @@ class APIController(var context : Context) {
                 var arrayVoertuig = object: TypeToken<ArrayList<Voertuig>>(){}.type
                 //Maakt een variabele dat de zojuist gemaakte Arraylist is, gevuld met van Json omgezette gson resultaten.
                 var voertuigen : ArrayList<Voertuig> = gson.fromJson(response.toString(), arrayVoertuig)
-                //Print de kentekens uit van alle Voertuigen in de Arraylist
-                voertuigen.forEach(){
-                    println(it.kenteken)
-                }
+
+                var adapter = ArrayAdapter<Voertuig>(context, android.R.layout.simple_list_item_1, voertuigen)
+                lstVoertuigen.adapter = adapter
+
             },
             //Zo niet, dat geven we een error.
             {error->
