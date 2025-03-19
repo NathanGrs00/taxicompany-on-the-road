@@ -35,35 +35,10 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.227"
+            app:layout_constraintHorizontal_bias="0.162"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.214" />
-
-        <EditText
-            android:id="@+id/ptKentekenInvoer"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:hint="Kenteken"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.117" />
-
-        <TextView
-            android:id="@+id/tvVraagKenteken"
-            android:layout_width="242dp"
-            android:layout_height="22dp"
-            android:text="Voer hier het kenteken in van de auto:"
-            app:layout_constraintBottom_toTopOf="@+id/ptKentekenInvoer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.396"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel" />
+            app:layout_constraintVertical_bias="0.166" />
 
         <Button
             android:id="@+id/btnVerzendKenteken"
@@ -74,10 +49,35 @@
             android:text="Zoek op kenteken"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.268"
+            app:layout_constraintHorizontal_bias="0.192"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.286" />
+            app:layout_constraintVertical_bias="0.21" />
+
+        <TextView
+            android:id="@+id/tvVraagKenteken"
+            android:layout_width="242dp"
+            android:layout_height="22dp"
+            android:text="Voer hier het kenteken in van de auto:"
+            app:layout_constraintBottom_toTopOf="@+id/ptKentekenInvoer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.284"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel" />
+
+        <EditText
+            android:id="@+id/ptKentekenInvoer"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="Kenteken"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
+            app:layout_constraintVertical_bias="0.104" />
 
         <include layout="@layout/navigation_bar"/>
 
@@ -86,11 +86,24 @@
             android:name="com.nathan.taxibedrijf_on_the_road.ResultFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lstVoertuigen"
+            app:layout_constraintVertical_bias="0.092" />
+
+        <ListView
+            android:id="@+id/lstVoertuigen"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:layout_marginTop="36dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken" />
+            app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
