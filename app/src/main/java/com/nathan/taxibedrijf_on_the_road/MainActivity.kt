@@ -3,8 +3,13 @@ package com.nathan.taxibedrijf_on_the_road
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,5 +35,9 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.fmResultaat, fragment)
                 .commit()
         }
+
+        //Maak een variabele 'ac' die de context van de applicatie stuurt naar de APIController Class.
+        var ac = APIController(this.applicationContext)
+        ac.getData()
     }
 }
