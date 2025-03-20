@@ -9,7 +9,6 @@ import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.nathan.taxibedrijf_on_the_road.R
 import com.nathan.taxibedrijf_on_the_road.data.model.Voertuig
-import com.nathan.taxibedrijf_on_the_road.data.model.VoertuigDetails
 import com.nathan.taxibedrijf_on_the_road.data.remote.APIController
 import com.nathan.taxibedrijf_on_the_road.ui.details.DetailsFragment
 
@@ -71,26 +70,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         lstVoertuigen.setOnItemClickListener { _, _, position, _ ->
             val geselecteerdVoertuig = voertuigen[position]
 
-            val voertuigDetails = VoertuigDetails(
+            val voertuig = Voertuig(
                 geselecteerdVoertuig.kenteken,
-                "Auto", //TODO: dummydata vervangen met data uit API
-                "01-01-2026",
-                "2000cc",
-                "4",
-                "1500kg",
-                "750kg",
-                "270cm"
+                geselecteerdVoertuig.voertuigsoort,
+                geselecteerdVoertuig.vervaldatum_apk,
+                geselecteerdVoertuig.cilinderinhoud,
+                geselecteerdVoertuig.aantal_cilinders,
+                geselecteerdVoertuig.toegestane_maximum_massa_voertuig,
+                geselecteerdVoertuig.maximum_massa_trekken_ongeremd,
+                geselecteerdVoertuig.wielbasis
             )
 
             val bundle = Bundle().apply {
-                putSerializable("voertuigDetails", voertuigDetails)
+                putSerializable("voertuig", voertuig)
             }
 
             val detailsFragment = DetailsFragment()
             detailsFragment.arguments = bundle
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, detailsFragment) // Zorg dat fragmentContainer correct is in je layout
+                .replace(R.id.fragmentContainer, detailsFragment)
                 .addToBackStack(null)
                 .commit()
         }
