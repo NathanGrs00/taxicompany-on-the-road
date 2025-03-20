@@ -13,7 +13,7 @@ import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
 
 class APIController(var context : Context) {
-    fun getData(lstVoertuigen: ListView){
+    fun getData(callback: (ArrayList<Voertuig>) -> Unit){
         //URL die gaat naar de data in een API, in json format.
         val url = "https://opendata.rdw.nl/resource/m9d7-ebf2.json"
         var gson = Gson()
@@ -24,9 +24,7 @@ class APIController(var context : Context) {
         //Vervolgens is er een StringRequest variabele aangemaakt, die een GET functie uitvoert. Dit betekent dat er data wordt opgehaald. Ook de API url is nodig.
         val request = StringRequest(
             Request.Method.GET, url,
-            //Dan voeren we een print in de console uit als we response krijgen.
             {response->
-                println(response.toString())
                 //Als je een specifieke array in de JSON file nodig hebt gebruik je:
                 //var jArray = JSONObject(response.toString()).getJSONArray()
 
@@ -34,10 +32,7 @@ class APIController(var context : Context) {
                 var arrayVoertuig = object: TypeToken<ArrayList<Voertuig>>(){}.type
                 //Maakt een variabele dat de zojuist gemaakte Arraylist is, gevuld met van Json omgezette gson resultaten.
                 var voertuigen : ArrayList<Voertuig> = gson.fromJson(response.toString(), arrayVoertuig)
-
-                var adapter = ArrayAdapter<Voertuig>(context, android.R.layout.simple_list_item_1, voertuigen)
-                lstVoertuigen.adapter = adapter
-
+                callback(voertuigen)
             },
             //Zo niet, dat geven we een error.
             {error->
