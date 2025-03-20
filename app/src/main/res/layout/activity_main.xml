@@ -22,10 +22,10 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="-16dp">
 
-        <include layout="@layout/header_bar"/>
+        <include layout="@layout/header_bar" />
 
         <TextView
             android:id="@+id/tvWelkomSubtitel"
@@ -52,7 +52,7 @@
             app:layout_constraintHorizontal_bias="0.192"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.21" />
+            app:layout_constraintVertical_bias="0.158" />
 
         <TextView
             android:id="@+id/tvVraagKenteken"
@@ -77,22 +77,23 @@
             app:layout_constraintHorizontal_bias="0.238"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.104" />
+            app:layout_constraintVertical_bias="0.072" />
 
-        <include layout="@layout/navigation_bar"/>
+        <include layout="@layout/navigation_bar" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fmResultaat"
             android:name="com.nathan.taxibedrijf_on_the_road.ResultFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/lstVoertuigen"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintHorizontal_bias="0.136"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lstVoertuigen"
-            app:layout_constraintVertical_bias="0.092" />
+            app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ListView
             android:id="@+id/lstVoertuigen"
@@ -101,9 +102,10 @@
             android:layout_marginTop="36dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.109" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
