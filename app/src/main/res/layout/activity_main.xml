@@ -107,6 +107,8 @@
             app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
             app:layout_constraintVertical_bias="0.109" />
 
+        <include layout="@layout/navigation_bar"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

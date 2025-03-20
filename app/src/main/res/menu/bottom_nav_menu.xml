@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/dashboard"
-        android:title="Dashboard"
-        android:icon="@drawable/dashboard"/>
+        android:id="@+id/lijst"
+        android:title="Kentekens"
+        android:icon="@drawable/taxibedrijf_logo" />
+
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/home"/>
+        android:icon="@drawable/taxibedrijf_logo"/>
 
     <item
-        android:id="@+id/about"
-        android:title="About"
-        android:icon="@drawable/about"/>
+        android:id="@+id/profiel"
+        android:title="Profiel"
+        android:icon="@drawable/taxibedrijf_logo" />
+
 </menu>
