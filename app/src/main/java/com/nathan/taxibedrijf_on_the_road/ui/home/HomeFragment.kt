@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.nathan.taxibedrijf_on_the_road.R
 import com.nathan.taxibedrijf_on_the_road.data.model.Voertuig
 import com.nathan.taxibedrijf_on_the_road.data.remote.APIController
+import com.nathan.taxibedrijf_on_the_road.ui.details.DetailsFragment
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -64,6 +65,33 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 // Lijst gekoppeld.
                 lstVoertuigen.adapter = adapter
             }
+        }
+
+        lstVoertuigen.setOnItemClickListener { _, _, position, _ ->
+            val geselecteerdVoertuig = voertuigen[position]
+
+            val voertuig = Voertuig(
+                geselecteerdVoertuig.kenteken,
+                geselecteerdVoertuig.voertuigsoort,
+                geselecteerdVoertuig.vervaldatum_apk,
+                geselecteerdVoertuig.cilinderinhoud,
+                geselecteerdVoertuig.aantal_cilinders,
+                geselecteerdVoertuig.toegestane_maximum_massa_voertuig,
+                geselecteerdVoertuig.maximum_massa_trekken_ongeremd,
+                geselecteerdVoertuig.wielbasis
+            )
+
+            val bundle = Bundle().apply {
+                putSerializable("voertuig", voertuig)
+            }
+
+            val detailsFragment = DetailsFragment()
+            detailsFragment.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, detailsFragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 }

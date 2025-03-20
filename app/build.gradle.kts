@@ -37,7 +37,7 @@ android {
 
 dependencies {
     implementation(libs.gson)
-    implementation (libs.material.v1120)
+    implementation(libs.material.v1120)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
