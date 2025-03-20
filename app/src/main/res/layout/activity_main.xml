@@ -8,107 +8,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/ivAchtergrondLogo"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="374dp"
-        android:src="@drawable/taxibedrijf_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="-16dp">
-
-        <include layout="@layout/header_bar" />
-
-        <TextView
-            android:id="@+id/tvWelkomSubtitel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welkom!"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.162"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.166" />
-
-        <Button
-            android:id="@+id/btnVerzendKenteken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#46C580"
-            android:text="Zoek op kenteken"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.192"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.158" />
-
-        <TextView
-            android:id="@+id/tvVraagKenteken"
-            android:layout_width="242dp"
-            android:layout_height="22dp"
-            android:text="Voer hier het kenteken in van de auto:"
-            app:layout_constraintBottom_toTopOf="@+id/ptKentekenInvoer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.284"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel" />
-
-        <EditText
-            android:id="@+id/ptKentekenInvoer"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:hint="Kenteken"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.072" />
-
-        <include layout="@layout/navigation_bar" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fmResultaat"
-            android:name="com.nathan.taxibedrijf_on_the_road.ResultFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/lstVoertuigen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.136"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <ListView
-            android:id="@+id/lstVoertuigen"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="36dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
-            app:layout_constraintVertical_bias="0.109" />
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bnvNavigatieBalk" />
 
         <include layout="@layout/navigation_bar"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

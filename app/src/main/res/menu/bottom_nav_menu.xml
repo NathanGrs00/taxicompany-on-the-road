@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/lijst"
-        android:title="Kentekens"
+        android:id="@+id/nav_details"
+        android:title="Details"
         android:icon="@drawable/taxibedrijf_logo" />
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/nav_home"
         android:title="Home"
         android:icon="@drawable/taxibedrijf_logo"/>
 
     <item
-        android:id="@+id/profiel"
+        android:id="@+id/nav_profiel"
         android:title="Profiel"
         android:icon="@drawable/taxibedrijf_logo" />
 
