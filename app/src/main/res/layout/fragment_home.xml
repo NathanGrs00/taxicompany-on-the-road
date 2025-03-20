@@ -42,15 +42,15 @@
             android:id="@+id/btnVerzendKenteken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:backgroundTint="#46C580"
             android:text="Zoek op kenteken"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.192"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
-            app:layout_constraintVertical_bias="0.158" />
+            app:layout_constraintTop_toBottomOf="@+id/ptKentekenInvoer"
+            app:layout_constraintVertical_bias="0.011" />
 
         <TextView
             android:id="@+id/tvVraagKenteken"
@@ -77,31 +77,17 @@
             app:layout_constraintTop_toBottomOf="@+id/tvWelkomSubtitel"
             app:layout_constraintVertical_bias="0.072" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fmResultaat"
-            android:name="com.nathan.taxibedrijf_on_the_road.ResultFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/lstVoertuigen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.136"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
-            app:layout_constraintVertical_bias="1.0" />
-
         <ListView
             android:id="@+id/lstVoertuigen"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="300dp"
             android:layout_marginTop="36dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnVerzendKenteken"
-            app:layout_constraintVertical_bias="0.109" />
+            app:layout_constraintVertical_bias="0.515" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

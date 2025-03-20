@@ -35,19 +35,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val gebruikersInput = kentekenInvoer.text.toString().trim()
 
             if (::voertuigen.isInitialized) {
-                val filteredList = voertuigen.filter { it.kenteken.contains(gebruikersInput, ignoreCase = true) }
-                adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, filteredList)
+                val filteredList =
+                    voertuigen.filter { it.kenteken.contains(gebruikersInput, ignoreCase = true) }
+                adapter = ArrayAdapter(
+                    requireContext(),
+                    android.R.layout.simple_list_item_1,
+                    filteredList
+                )
                 lstVoertuigen.adapter = adapter
-
-                // Send data to ResultFragment
-                val fragment = ResultFragment()
-                val bundle = Bundle()
-                bundle.putString("GEBRUIKERS_INPUT", gebruikersInput)
-                fragment.arguments = bundle
-
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fmResultaat, fragment)
-                    .commit()
             }
         }
     }
