@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 // Vervangt de huidige fragment in de fragmentContainer met de nieuwe fragment.
                 .replace(R.id.fragmentContainer, fragment)
+                .addToBackStack(null)
                 .commit()
         }
 

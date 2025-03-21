@@ -3,8 +3,10 @@ package com.nathan.taxibedrijf_on_the_road.ui.details
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nathan.taxibedrijf_on_the_road.R
 import com.nathan.taxibedrijf_on_the_road.data.model.Voertuig
 
@@ -12,6 +14,15 @@ import com.nathan.taxibedrijf_on_the_road.data.model.Voertuig
 class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     lateinit var lstVoertuigDetails: ListView
+
+    //Functie om handmatig het juiste navbar item te selecteren.
+    override fun onResume() {
+        super.onResume()
+        //Vind de navigatiebalk
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bnvNavigatieBalk)
+        //Zet nav_details optie handmatig naar geselecteerd.
+        bottomNav.menu.findItem(R.id.nav_details)?.isChecked = true
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,7 +33,9 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         // Haal de voertuigdetails op via arguments
         val voertuigDetails = arguments?.getSerializable("voertuig") as? Voertuig
 
+        // Voert een stuk code uit over de data voertuigDetails. De ? zorgt ervoor dat data ook null mag zijn.
         voertuigDetails?.let {
+            //Maakt een lijst van een labelstring samen met de variabele uit voertuigDetails.
             val detailsLijst = listOf(
                 "Kenteken: ${it.kenteken}",
                 "Voertuigsoort: ${it.voertuigsoort}",
@@ -34,8 +47,16 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                 "Wielbasis: ${it.wielbasis}"
             )
 
+            // Zorgt ervoor dat de lijst in een ListView formaat gezet wordt.
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, detailsLijst)
+            //Vult de ListView met de adapter hierboven
             lstVoertuigDetails.adapter = adapter
+        }
+        //Terugknop
+        val terugKnop : Button = view.findViewById(R.id.btnGaTerug)
+        terugKnop.setOnClickListener(){
+            // Gaat terug naar de homepagina.
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 }

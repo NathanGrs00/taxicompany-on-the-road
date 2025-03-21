@@ -55,7 +55,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 //Variabele om de lijst te filteren, op kentekens die alleen de gebruikersinput bevatten.
                 // ignoreCase zorgt ervoor dat hoofdletters niet uitmaken in de input.
                 val filteredList =
-                    voertuigen.filter { it.kenteken.contains(gebruikersInput, ignoreCase = true) }
+                    voertuigen.filter { it.kenteken!!.contains(gebruikersInput, ignoreCase = true) }
                 //Vervolgens moet de lijst nog gevuld worden met de nieuwe gefilterde lijst.
                 adapter = ArrayAdapter(
                     requireContext(),
@@ -67,9 +67,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
 
+        //Checkt er een item in de listView wordt geselecteerd. Alleen de positie is nodig.
         lstVoertuigen.setOnItemClickListener { _, _, position, _ ->
+            // Het geselecteerde voertuig is een variabele, en het is de positie in de lijst van voertuigen.
             val geselecteerdVoertuig = voertuigen[position]
 
+            // Vervolgens wordt er een model gemaakt met de data van het geselecteerde voertuig.
             val voertuig = Voertuig(
                 geselecteerdVoertuig.kenteken,
                 geselecteerdVoertuig.voertuigsoort,
@@ -81,13 +84,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 geselecteerdVoertuig.wielbasis
             )
 
+            // Dit zorgt ervoor dat de data uit het model omgezet wordt in leesbare tekst voor het volgende scherm.
             val bundle = Bundle().apply {
                 putSerializable("voertuig", voertuig)
             }
 
+            // Zorgt ervoor dat de fragment de data meekrijgt.
             val detailsFragment = DetailsFragment()
             detailsFragment.arguments = bundle
 
+            //Verandert de fragment naar de DetailsFragment.
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, detailsFragment)
                 .addToBackStack(null)
