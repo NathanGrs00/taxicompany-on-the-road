@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nathan.taxibedrijf_on_the_road.R
@@ -29,29 +30,34 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         // Koppel listview
         lstVoertuigDetails = view.findViewById(R.id.lvVoertuigDetails)
+        val tvGeenKenteken = view.findViewById<TextView>(R.id.tvGeenKenteken)
 
         // Haal de voertuigdetails op via arguments
         val voertuigDetails = arguments?.getSerializable("voertuig") as? Voertuig
 
-        // Voert een stuk code uit over de data voertuigDetails. De ? zorgt ervoor dat data ook null mag zijn.
-        voertuigDetails?.let {
+        if (voertuigDetails != null) {
+            // Zet de placeholder tekst op onzichtbaar.
+            tvGeenKenteken.visibility = View.GONE
             //Maakt een lijst van een labelstring samen met de variabele uit voertuigDetails.
             val detailsLijst = listOf(
-                "Kenteken: ${it.kenteken}",
-                "Voertuigsoort: ${it.voertuigsoort}",
-                "Vervaldatum: ${it.vervaldatum_apk}",
-                "Cilinderinhoud: ${it.cilinderinhoud}",
-                "Aantal cilinders: ${it.aantal_cilinders}",
-                "Massa voertuig: ${it.toegestane_maximum_massa_voertuig}",
-                "Max trekken: ${it.maximum_massa_trekken_ongeremd}",
-                "Wielbasis: ${it.wielbasis}"
+                "Kenteken: ${voertuigDetails.kenteken ?: "Niet beschikbaar"}",
+                "Voertuigsoort: ${voertuigDetails.voertuigsoort ?: "Niet beschikbaar"}",
+                "Vervaldatum: ${voertuigDetails.vervaldatum_apk ?: "Niet beschikbaar"}",
+                "Cilinderinhoud: ${voertuigDetails.cilinderinhoud ?: "Niet beschikbaar"}",
+                "Aantal cilinders: ${voertuigDetails.aantal_cilinders ?: "Niet beschikbaar"}",
+                "Massa voertuig: ${voertuigDetails.toegestane_maximum_massa_voertuig ?: "Niet beschikbaar"}",
+                "Max trekken: ${voertuigDetails.maximum_massa_trekken_ongeremd ?: "Niet beschikbaar"}",
+                "Wielbasis: ${voertuigDetails.wielbasis ?: "Niet beschikbaar"}"
             )
 
             // Zorgt ervoor dat de lijst in een ListView formaat gezet wordt.
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, detailsLijst)
             //Vult de ListView met de adapter hierboven
             lstVoertuigDetails.adapter = adapter
+        } else {
+            tvGeenKenteken.visibility = View.VISIBLE
         }
+
         //Terugknop
         val terugKnop : Button = view.findViewById(R.id.btnGaTerug)
         terugKnop.setOnClickListener(){

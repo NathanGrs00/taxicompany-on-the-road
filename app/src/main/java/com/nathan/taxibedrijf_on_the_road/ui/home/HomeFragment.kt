@@ -6,7 +6,9 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nathan.taxibedrijf_on_the_road.R
 import com.nathan.taxibedrijf_on_the_road.data.model.Voertuig
 import com.nathan.taxibedrijf_on_the_road.data.remote.APIController
@@ -20,6 +22,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     lateinit var voertuigen: ArrayList<Voertuig>
     lateinit var adapter: ArrayAdapter<Voertuig>
 
+    override fun onResume() {
+        super.onResume()
+        //Vind de navigatiebalk
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bnvNavigatieBalk)
+        //Zet nav_details optie handmatig naar geselecteerd.
+        bottomNav.menu.findItem(R.id.nav_home)?.isChecked = true
+    }
+
     // Functie die nodig is om Fragment inhoud te schrijven.
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,10 +37,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         //Vinden van de juiste ID's in de xml file.
         kentekenInvoer = view.findViewById(R.id.ptKentekenInvoer)
         lstVoertuigen = view.findViewById(R.id.lstVoertuigen)
+        val tvGeenResultaat = view.findViewById<TextView>(R.id.tvGeenKentekensFilter)
         val verzendKentekenKnop = view.findViewById<Button>(R.id.btnVerzendKenteken)
 
         // Ophalen van data uit de API. Roep de controller klasse aan.
         val ac = APIController(requireContext())
+
+        tvGeenResultaat.visibility = View.GONE
+        lstVoertuigen.visibility = View.VISIBLE
+
         // In de Controller wordt er door getData een ArrayList teruggegeven. Dit is opgehaaldeVoertuigen.
         ac.getData { opgehaaldeVoertuigen ->
             // Eerst zet je de lijst om in een lokale variabele, om zo de juiste informatie in de ListView te krijgen.
@@ -54,16 +69,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
                 //Variabele om de lijst te filteren, op kentekens die alleen de gebruikersinput bevatten.
                 // ignoreCase zorgt ervoor dat hoofdletters niet uitmaken in de input.
-                val filteredList =
-                    voertuigen.filter { it.kenteken!!.contains(gebruikersInput, ignoreCase = true) }
-                //Vervolgens moet de lijst nog gevuld worden met de nieuwe gefilterde lijst.
-                adapter = ArrayAdapter(
-                    requireContext(),
-                    android.R.layout.simple_list_item_1,
-                    filteredList
-                )
-                // Lijst gekoppeld.
-                lstVoertuigen.adapter = adapter
+                val filteredList = voertuigen.filter { it.kenteken!!.contains(gebruikersInput, ignoreCase = true) }
+
+                if (filteredList.isEmpty()){
+                    tvGeenResultaat.visibility = View.VISIBLE
+                    lstVoertuigen.visibility = View.GONE
+                } else {
+                    tvGeenResultaat.visibility = View.GONE
+                    lstVoertuigen.visibility = View.VISIBLE
+
+                    //Vervolgens moet de lijst nog gevuld worden met de nieuwe gefilterde lijst.
+                    adapter = ArrayAdapter(
+                        requireContext(),
+                        android.R.layout.simple_list_item_1,
+                        filteredList
+                    )
+                    // Lijst gekoppeld.
+                    lstVoertuigen.adapter = adapter
+                }
             }
         }
 

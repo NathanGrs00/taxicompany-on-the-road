@@ -15,6 +15,6 @@ class Voertuig (var kenteken: String?,
     //Functie om een string terug te geven.
     override fun toString(): String {
         //Geeft een string met de parameters terug, dit is hoe ze in de ListView worden weergeven.
-        return "Kenteken = '$kenteken', Voertuigsoort = '$voertuigsoort'"
+        return "Kenteken = '$kenteken', \nVoertuigsoort = '$voertuigsoort'"
     }
 }
