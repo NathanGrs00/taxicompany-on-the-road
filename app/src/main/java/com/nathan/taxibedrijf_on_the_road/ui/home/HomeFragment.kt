@@ -55,7 +55,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 //Variabele om de lijst te filteren, op kentekens die alleen de gebruikersinput bevatten.
                 // ignoreCase zorgt ervoor dat hoofdletters niet uitmaken in de input.
                 val filteredList =
-                    voertuigen.filter { it.kenteken.contains(gebruikersInput, ignoreCase = true) }
+                    voertuigen.filter { it.kenteken!!.contains(gebruikersInput, ignoreCase = true) }
                 //Vervolgens moet de lijst nog gevuld worden met de nieuwe gefilterde lijst.
                 adapter = ArrayAdapter(
                     requireContext(),
@@ -90,7 +90,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, detailsFragment)
-                .addToBackStack(null)
                 .commit()
         }
     }
