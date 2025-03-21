@@ -12,7 +12,7 @@
         android:gravity="center"
         android:paddingTop="60dp"
         android:paddingBottom="10dp"
-        android:text="Kenteken-tracker 'On The Road'"
+        android:text="@string/on_the_road"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold" />

@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/nav_details"
-        android:title="Details"
-        android:icon="@drawable/material_symbols__car_tag" />
+        android:icon="@mipmap/material_symbols__car_tag"
+        android:title="@string/details" />
 
     <item
         android:id="@+id/nav_home"
-        android:title="Home"
-        android:icon="@drawable/material_symbols__home_rounded"/>
+        android:icon="@mipmap/material_symbols__home_rounded"
+        android:title="@string/home" />
 
     <item
         android:id="@+id/nav_profiel"
-        android:title="Profiel"
-        android:icon="@drawable/material_symbols__person_rounded" />
+        android:icon="@mipmap/material_symbols__person_rounded"
+        android:title="@string/profile" />
 
 </menu>

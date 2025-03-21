@@ -60,7 +60,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         //Terugknop
         val terugKnop : Button = view.findViewById(R.id.btnGaTerug)
-        terugKnop.setOnClickListener(){
+        terugKnop.setOnClickListener {
             // Gaat terug naar de homepagina.
             requireActivity().supportFragmentManager.popBackStack()
         }
