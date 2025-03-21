@@ -33,7 +33,9 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         // Haal de voertuigdetails op via arguments
         val voertuigDetails = arguments?.getSerializable("voertuig") as? Voertuig
 
+        // Voert een stuk code uit over de data voertuigDetails. De ? zorgt ervoor dat data ook null mag zijn.
         voertuigDetails?.let {
+            //Maakt een lijst van een labelstring samen met de variabele uit voertuigDetails.
             val detailsLijst = listOf(
                 "Kenteken: ${it.kenteken}",
                 "Voertuigsoort: ${it.voertuigsoort}",
@@ -45,13 +47,16 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                 "Wielbasis: ${it.wielbasis}"
             )
 
+            // Zorgt ervoor dat de lijst in een ListView formaat gezet wordt.
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, detailsLijst)
+            //Vult de ListView met de adapter hierboven
             lstVoertuigDetails.adapter = adapter
-
-            val terugKnop : Button = view.findViewById(R.id.btnGaTerug)
-            terugKnop.setOnClickListener(){
-                parentFragmentManager.popBackStackImmediate()
-            }
+        }
+        //Terugknop
+        val terugKnop : Button = view.findViewById(R.id.btnGaTerug)
+        terugKnop.setOnClickListener(){
+            // Gaat terug naar de homepagina.
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 }
